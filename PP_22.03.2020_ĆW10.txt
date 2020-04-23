@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+float function(float x, float a){
+  if(x-2 == 0){
+    cout<<"Równanie sprzeczne";
+    return 0;
+  }else{
+    return (x+a)/((x-2)*(x-2));
+  }
+  
+}
+
+int main() {
+  //Napisaæ program, który liczy funkcjê
+ //F(x) = (x+a)/((x-2)(x-2))
+ float a,x;
+ cout<<"WprowadŸ a: ";
+ cin>>a;
+ cout<<"WprowadŸ x: ";
+ cin>>x;
+ cout<<function(x,a);
+
+return 0;
+}

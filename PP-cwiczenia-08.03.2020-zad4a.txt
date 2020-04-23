@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstdio>
+#include <bits/stdc++.h> 
+using namespace std;
+int main() 
+{ 
+    int arr[5]; 
+    int n = sizeof(arr)/sizeof(arr[0]);  
+    for(int i = 0; i<5; i++){
+      cout << "WprowadŸ " << i +1 << " liczbe" << endl;
+      cin>>arr[i];
+    }
+  
+    sort(arr, arr+n, greater<int>()); 
+  
+    cout << "Array after sorting : \n"; 
+    for (int i = 0; i < n; ++i) 
+        cout << arr[i] << " "; 
+  
+    return 0; 
+} 

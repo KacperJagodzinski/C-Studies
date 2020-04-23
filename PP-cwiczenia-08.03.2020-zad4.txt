@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int main() {
+ int a,b,c,max,mid,min;
+ cout << "Podaj A: \n";
+ cin >> a;
+ cout << "Podaj B: \n";
+ cin >> b;
+ cout << "Podaj C: \n";
+ cin >> c;
+
+ if(a > b && a > c){
+  max = a;
+  if(b > c){
+    mid = b;
+    min = c;
+  }else{
+    mid = c;
+    min = b;
+  }
+ }else if(b > a && b > c){
+   max = b;
+   if(a > c){
+     min = c;
+     mid = a;
+   }else{
+     min = a;
+     mid = c;
+   }
+ }else{
+   max = c;
+   if(b > a){
+     mid = b;
+     min = a;
+   }else{
+     mid = a;
+     min = b;
+   }
+ }
+
+ cout << "Max: " << max << endl;
+ cout << "Mid: " << mid << endl;
+ cout << "Min: " << min << endl;
+
+
+ return 0;
+}

@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+void prostokat();
+void function1();
+void function2();
+
+int main() {
+  char pick;
+  cout<< "A) Obliczam funkcje f(x)=x-a/(b-2)*(x-c)"<<endl
+  <<"B) Obliczam pole prostok¹ta."<<endl
+  <<"C) Wyliczam funkcje f(x)=1/(x-a) dla wylosowanych 10 dowolnych liczb z zakresu -10 do 10"<<endl
+  <<"D Koniec programu"<<endl;
+  cout<<"Wybieram: ";
+  cin>>pick;
+
+  switch(pick)
+  {
+    case 'a':
+    function1();
+    break;
+
+    case 'b':
+    prostokat();
+    break;
+
+    case 'c':
+    function2();
+    break;
+    
+    case 'd':
+    cout<<"Papa!";
+    break;
+    
+    default:
+    cout<<"Wyst¹pi³ b³¹d, spróbuj jeszcze raz!";
+    break;
+  }
+}
+void function1(){
+  double x,a,b,c,wynik;
+    cout<<"Podaj x:";
+    cin>>x;
+    cout<<"Podaj a: ";
+    cin>>a;
+    cout<<"Podaj b: ";
+    cin>>b;
+    cout<<"Podaj c: ";
+    cin>>c;
+    if((b-2)==0 || (x-c)==0){
+      cout<<"Nie dziel przez zero!";
+    }else{
+      wynik = x-a / (b - 2 ) * (x - c);
+      cout<<"f(x) = " << wynik;
+    }
+}
+
+void prostokat(){
+  int a,b;
+  cout<<"Podaj d³ugoœæ pierwszego boku prostok¹ta: ";
+  cin>>a;
+  cout<<"Podaj d³ugoœæ drugiego boku prostok¹ta: ";
+  cin>>b;
+  cout<<"Pole prostok¹ta: "<< a*b;
+}
+
+void function2(){
+  double x,a,wynik;
+  cout<<"Podaj x: ";
+  cin>>x;
+  cout<<"Podaj a: ";
+  cin>>a;
+  if(x==a){
+    cout<<"Nie dziel przez zero!";
+  }else{
+  wynik = 1/(x-a);
+  cout<<"f(x) = " << wynik;
+  }
+}

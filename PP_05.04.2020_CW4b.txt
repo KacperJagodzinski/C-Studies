@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout<<"Ile masz dzieci?"<<endl;
+  int kids;
+  cin>>kids;
+  //switch
+
+  switch(kids)
+  {
+    case 5:
+    cout<<"2500 z³";
+    break;
+    case 4:
+    cout<<"2000 z³";
+    break;
+    case 3:
+    cout<<"1500 z³";
+    break;
+    case 2:
+    cout<<"1000 z³";
+    break;
+    case 1:
+    cout<<"500 z³";
+    break;
+    default:
+    cout<<"B³¹d!";
+    break;
+
+  }
+
+
+  //moje rozwiazanie
+  // if(kids>=5){
+  //   cout<<"Maksymalnie 5 dzieci!" << " Otrzymasz 2500 z³"<<endl;
+  // }else if(kids<0){
+  //   cout<<"B³¹d!"<<endl;
+  //   }else{
+  //   cout<<"Otrzymasz " << kids * 500<< " z³"<<endl;
+  //   }
+
+}

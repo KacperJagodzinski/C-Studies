@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+  //Napisz program, który wystawi ocenê z testu. U¿yj zagnie¿d¿onej instrukcji if - else
+  
+  int wynik;
+  cout<<"WprowadŸ wynik testu"<<endl;
+  cin>> wynik;
+  if (wynik <= 51){
+    cout << "2";
+    }else if (wynik <= 69){
+      cout << "3";
+      }else if (wynik <= 79){
+        cout << "4";
+        }else if (wynik <= 89){
+          cout << "5";
+          }else if (wynik <= 100){
+            cout << "6";
+            }
+
+  return 0;
+}

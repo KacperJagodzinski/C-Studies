@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+//Napisz program, który zamieni liczbê zapisan¹ w systemie dziesiêtnym na system szesnastkowy.
+
+void hex(int liczba)
+{
+    if (liczba == 0)
+        return;
+
+    int reszta = liczba % 16;
+    liczba /= 16;
+    hex(liczba); // rekurencja
+    if (reszta > 9)
+        cout << (char)(reszta - 10 + 'A');
+    else
+        cout << reszta;
+}
+
+int main() {
+    cout << "WprowadŸ liczbê ";
+    int dec;
+    cin >> dec;
+    hex(dec);
+    cout << endl;
+    return 0;
+}

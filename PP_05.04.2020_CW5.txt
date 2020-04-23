@@ -1,0 +1,24 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+
+int main() {
+  //wed³ug treœci zadania
+for(int i=1; i<=100; i++){
+  if(i==23){
+    break;
+  }
+  cout<<i<<endl;
+}
+cout<<endl;
+//z randomowymi liczbami 
+srand(time(NULL));
+int randomNumber = 0;
+for(int i=1; i<=100; i++){
+  randomNumber=rand()%100+1;
+  if(randomNumber==23){
+    break;
+  }
+  cout<<randomNumber<<endl;
+}
+}

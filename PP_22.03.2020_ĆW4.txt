@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+  //Podajemy jeden ze znaków: "a", "b", "c" lub "d". W zale¿noœci od podanego znaku, program powinien policzyæ odpowiednie pole:
+// znak a - liczymy pole kwadratu
+// znak b - liczymy pole prostok¹ta
+// znak c - pole trójk¹ta
+// znak d - pole trapezu
+
+  char znak;
+  cout<<"Czego potrzebujesz?"<<endl<<"a - policzyæ pole kwadratu"<<endl<<"b - policzyæ pole prostok¹ta" << endl<< "c - policzyæ pole trójk¹ta" <<endl << "d - policzyæ pole trapezu"<<endl;
+  cin>>znak;
+  switch(znak)
+  {
+    case 'a':
+    int a;
+    cout<<"Podaj d³ugoœæ boku kwadratu"<<endl;
+    cin>>a;
+    cout<<"Pole kwadratu o boku " << a << " wynosi " << a*a;
+    break;
+    case 'b':
+    int b,c;
+    cout<<"Podaj d³ugoœci boków prostok¹ta"<<endl<<"Bok 1 = ";
+    cin>>b;
+    cout<<"Bok 2 = ";
+    cin>>c;
+    cout<<"Pole prostok¹ta o bokach " << b << " i " << c << " wynosi "<< b * c;
+    break;
+    case 'c':
+    int p,h;
+    cout<<"Podaj d³ugoœæ podstawy trójk¹ta"<<endl;
+    cin>>p;
+    cout<<"Podaj wysokoœæ trójk¹ta"<<endl;
+    cin>>h;
+    cout<<"Pole trójk¹ta o podstawie " << p << " i wysokoœci " << h << " wynosi " << (p*h)/2;
+    break;
+    case 'd':
+    int d,e,f;
+    cout<<"Podaj d³ugoœæ pierwszej podstawy trapezu"<<endl;
+    cin>>d;
+    cout<<"Podaj d³ugoœæ drugiej podstawy trapezu"<<endl;
+    cin>>e;
+    cout<<"Podaj wysokoœæ trapezu" <<endl;
+    cin>>f;
+    cout<<"Pole trapezu o podstawach " << d << " i " << e << " oraz wysokoœci " << f << " wynosi " << ((d+e)*f)/2;
+    break;
+  }
+}

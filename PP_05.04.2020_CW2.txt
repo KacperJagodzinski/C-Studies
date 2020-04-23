@@ -1,0 +1,24 @@
+#include <iostream>
+#include<cstdlib>
+#include <time.h>
+using namespace std;
+
+int main() {
+  srand(time(NULL));
+  int randomNumber=rand()%1000 + 1;
+  int x=0;
+  int count = 0;
+  while (!(x==randomNumber)){
+    count++;
+    cout<<"Zgadnij liczbe wybran¹ przez komputer"<<endl;
+    cin>>x;
+    if(x>randomNumber){
+      cout<<"Mniejsza"<<endl;
+    }else if(x<randomNumber){
+      cout<<"Wiêksza"<<endl;
+    }
+  }
+
+  cout<<"Zgad³eœ!"<< x <<" = " << randomNumber;
+
+}
