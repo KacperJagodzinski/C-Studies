@@ -1,0 +1,158 @@
+#include <iostream>
+#include <cstdio>
+#include<iomanip>
+
+using namespace std;
+
+int silnia(int n)
+{
+  int silniaWynik=1;
+  for (int i = 1; i <= n; i++){
+    silniaWynik *= i;
+  }
+  return silniaWynik;
+}
+
+bool zadanieA(double a, int n, int x)
+{
+  int nSilnia;
+  bool czyPrawidlowe = true;
+  //obliczam silnie za pomoca zewnetrznej metody
+  nSilnia = silnia(n);
+  //sprawdzam czy mianownik jest rowny 0 
+  if ((((a * x * x) - 2) * nSilnia) == 0 ){
+    czyPrawidlowe = false;
+    return czyPrawidlowe;
+  }else{
+    return czyPrawidlowe;
+  }
+}
+
+void zadanieB()
+{
+  //wprowadzam zmienne
+  double a,wynik;
+  int n,xStart,xKoniec,x,nSilnia;
+  cout<<"Podaj wspó³czynnik a"<<endl;
+  cin>>a;
+  cout<<"Podaj wspó³czynnik n"<<endl;
+  cin>>n;
+  cout<<"Podaj doln¹ granice przedzia³u x"<<endl;
+  cin>>xStart;
+  cout<<"Podaj górn¹ granice przedzia³u x"<<endl;
+  cin>>xKoniec;
+  //sprawdzam czy gorna granica jest wieksza od dolnej
+  if(xKoniec>xStart){
+    //zaczynam wypisywac tabele
+    cout<<"LP|    x|    F(x)"<<endl<<"_____________"<<endl;
+      for(int i = 0; i < 5; i++){
+      //losuje liczby w granicach
+      x = rand() % (xKoniec - xStart) + xStart;
+      //sprawdzam czy dane s¹ prawid³owe
+        if (zadanieA(a,n,x)){
+          //obliczam silne z n
+          nSilnia = silnia(n);
+          //obliczam wartoœæ funkcji dla wylosowanej liczby
+          wynik = ((nSilnia - 1) * x) / (((a * x * x) - 2) * nSilnia) ;
+          //wypisuje tabele
+          cout<<i+1<<"    "<<x<<"   "<<setprecision(3)<<wynik<<endl;
+        }else{
+          cout<<i+1<<"    "<<x<<"   "<<"b³¹d"<<endl;
+        }
+    }
+  }else{
+    cout<<"B³¹d!";
+  }
+}
+void zadanieC()
+{
+  //wprowadzam zmienne
+  double a,wynik;
+  int n,xStart,xKoniec,nSilnia,skok,counter=1;
+  cout<<"Podaj wspó³czynnik a"<<endl;
+  cin>>a;
+  cout<<"Podaj wspó³czynnik n"<<endl;
+  cin>>n;
+  cout<<"Podaj doln¹ granice przedzia³u x"<<endl;
+  cin>>xStart;
+  cout<<"Podaj górn¹ granice przedzia³u x"<<endl;
+  cin>>xKoniec;
+  cout<<"Podaj skok"<<endl;
+  cin>>skok;
+  if(xKoniec>xStart){
+    //zaczynam wypisywac tabele
+    cout<<"LP|    x|    F(x)"<<endl<<"_____________"<<endl;
+    int x = xStart;
+    nSilnia=silnia(n);
+    while(x<xKoniec){
+      if (zadanieA(a,n,x)){
+        wynik = ((nSilnia - 1) * x) / (((a * x * x) - 2) * nSilnia);
+        cout<<counter<<"    "<<x<<"   "<<setprecision(3)<<wynik<<endl;
+      }else{
+        cout<<counter<<"    "<<x<<"   "<<"b³¹d"<<endl;
+      }
+      counter++;
+      x += skok;
+    }
+  }else{
+    cout<<"B³¹d!";
+  }
+}
+
+
+int main() {
+  
+  //funkcja = ( (n! - 1) * x ) / ( (a * x * x) - 2 ) * (n!)
+
+  //ustawiam ziarno generatora 
+  srand(time(NULL));
+
+  //podaje na ekranie imie i nazwisko autora
+  cout<<"Autor: Kacper Jagodziñski"<<endl;
+
+  //wypisuje "menu"
+  cout<<"Wybierz:"<<endl<<"A: Sprawdzenie wykonalnoœci danej funkcji f(x)"<<endl<<"B: Obliczanie wartoœci funkcji f(x) dla wylosowanych piêciu wartoœci"<<endl<<"C: Obliczenie wartoœci funkcji f(x) dla przedzia³u podanego z klawiatury"<<endl<<"D. Zakoñczenie pracy"<<endl;
+
+  //Wprowadzam wybór:
+  char wyborMenu;
+  cin>>wyborMenu;
+
+  //funkcjonalnoœæ menu
+  switch (toupper(wyborMenu))
+  {
+    case 'A':
+    double a;
+    int n,x;
+    cout<<"Podaj wspó³czynnik a: "<<endl;
+    cin>>a;
+    cout<<"Podaj wspó³czynnik n: "<<endl;
+    cin>>n;
+    //wypisuje wzor funkcji
+    cout<< "f(x) = ((" << n << "!" << " - 1) * x)" << " / (" << a << "x^2 - 2) * " << n << "!)"<<endl;
+    cout<<"Podaj wartoœæ x"<<endl;
+    cin>>x;
+    //korzystam z metody
+    if(zadanieA(a,n,x)){
+      cout<<"Dane prawid³owe"<<endl;
+    }else{
+      cout<<"Dane nieprawid³owe"<<endl;
+    }
+    cout<<"Do zobaczenia"<<endl<<"Kacper Jagodziñski Zestaw nr 13";
+    break;
+    
+    case 'B':
+    zadanieB();
+    cout<<"Do zobaczenia"<<endl<<"Kacper Jagodziñski Zestaw nr 13 ";
+    break;
+
+    case 'C':
+    zadanieC();
+    cout<<"Do zobaczenia"<<endl<<"Kacper Jagodziñski Zestaw nr 13 ";
+    break;
+
+    case 'D':
+    //koniec programu
+    cout<<"Do zobaczenia"<<endl;
+    break;
+  }
+}
